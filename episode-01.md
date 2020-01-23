@@ -3,7 +3,7 @@
 
 # テーブル〜データを入れる受け口を作る
 ``` sql
-create table testtable1 ( ← テーブルを作成 
+create table User ( ← テーブルを作成 
   id integer primary key
 , name text not null unique 
 , age integer
@@ -12,14 +12,14 @@ create table testtable1 ( ← テーブルを作成
 
 # データを入れてみる
 ``` sql
-insert into testtable1(id, name, age) values (101, 'Alice', 20);
-insert into testtable1(id, name, age) values (102, 'Bob', 25);
-insert into testtable1(id, name, age) values (103, 'Cathy', 22);
+insert into User(id, name, age) values (101, 'Alice', 20);
+insert into User(id, name, age) values (102, 'Bob', 25);
+insert into User(id, name, age) values (103, 'Cathy', 22);
 ```
 
 # まとめて入れる方法
 ``` sql
-insert into testtable1(id, name, age) 
+insert into User(id, name, age) 
 values (104, 'Jobs', 56)
      , (105, 'Gates' , 64) 
      , (106, 'Bezos', 56);
@@ -29,7 +29,7 @@ values (104, 'Jobs', 56)
 - テーブルに挿入した行を検索してみます。そのためには select 文を使います。
 ``` sql
 select *          ← 「*」はすべての列を表示 
-from testtable1;  ← テーブルの行をすべて表示
+from User;  ← テーブルの行をすべて表示
 ```
 ###  行は横、列は縦です。
 
@@ -45,13 +45,13 @@ from testtable1;  ← テーブルの行をすべて表示
 - ある特定の列だけを検索する。
 ``` sql
 select name 
-from testtable1;
+from User;
 ```
 
 - ある特定の行だけを検索する。
 ``` sql
 select name 
-from testtable1
+from User
 where name = 'Bob';
 ```
 
@@ -66,7 +66,7 @@ where {表示させたいデータの検索条件};
 - 問題 1:テーブルを作成
   - ID と名前と年齢の列を持つ、次のようなテーブルを作成してください
 ``` sql
-create table testtable1 (
+create table Customer (
   id   integer primary key
 , name text    not null
 , age  integer
@@ -74,7 +74,7 @@ create table testtable1 (
 ```
 
 - 問題 2:データを挿入
-  - テーブル「testtable1」に、次のような行を挿入してください。
+  - テーブル「Customer」に、次のような行を挿入してください。
     - ID=101、名前=Alpha、年齢=20 
     - ID=102、名前=Blavo、年齢=25
     - ID=103、名前=Charlie、年齢=23  
