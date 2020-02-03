@@ -64,22 +64,32 @@ where {表示させたいデータの検索条件};
 
 # 練習問題
 - 問題 1:テーブルを作成
-  - ID と名前と年齢の列を持つ、次のようなテーブルを作成してください
+  - ID と名前と身長と性別の列を持つ、次のようなテーブルとデータ作成してください
 ``` sql
-create table Customer (
-  id   integer primary key
-, name text    not null
-, age  integer
+- テーブル「members」を作成 primary key
+
+create table members (
+  id integer not null
+, name text not null
+, height integer , gender char(1) not null 
 );
+
+
+insert into members(id, name, height, gender)
+values 
+  (101, 'エレン', 170, 'M')
+, (102, 'ミカサ', 170, 'F') 
+, (103, 'アルミン', 163, 'M')
+, (104, 'ジャン',175, 'M')
+, (105, 'サシャ',168, 'F')
+, (106, 'コニー',158, 'M')
+;
 ```
 
-- 問題 2:データを挿入
-  - テーブル「Customer」に、次のような行を挿入してください。
-    - ID=101、名前=Alpha、年齢=20 
-    - ID=102、名前=Blavo、年齢=25
-    - ID=103、名前=Charlie、年齢=23  
-
-- 問題 3:検索
-  - テーブル「testtable1」の行をすべて検索してください。
-  - 名前が「Blavo」の行だけを検索してください。
-  - 年齢が 22 歳以上の行だけを検索してください。
+- 問題 2:検索
+  - 1.テーブル「members」の行をすべて検索してください。
+  - 2.名前が「えれん」の行だけを検索してください。
+  - 3.性別が 女性(F:Female)の行だけを検索してください。
+  
+  
+  
