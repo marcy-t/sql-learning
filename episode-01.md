@@ -51,7 +51,7 @@ from testtable;
 - ある特定の行だけを検索する。
 ``` sql
 select name 
-from User
+from testtable
 where name = 'Bob';
 ```
 
