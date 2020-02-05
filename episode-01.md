@@ -3,7 +3,7 @@
 
 # テーブル〜データを入れる受け口を作る
 ``` sql
-create table User ( ← テーブルを作成 
+create table testtable (
   id integer primary key
 , name text not null unique 
 , age integer
@@ -12,14 +12,14 @@ create table User ( ← テーブルを作成
 
 # データを入れてみる
 ``` sql
-insert into User(id, name, age) values (101, 'Alice', 20);
-insert into User(id, name, age) values (102, 'Bob', 25);
-insert into User(id, name, age) values (103, 'Cathy', 22);
+insert into testtable(id, name, age) values (101, 'Alice', 20);
+insert into testtable(id, name, age) values (102, 'Bob', 25);
+insert into testtable(id, name, age) values (103, 'Cathy', 22);
 ```
 
 # まとめて入れる方法
 ``` sql
-insert into User(id, name, age) 
+insert into testtable(id, name, age) 
 values (104, 'Jobs', 56)
      , (105, 'Gates' , 64) 
      , (106, 'Bezos', 56);
@@ -29,7 +29,7 @@ values (104, 'Jobs', 56)
 - テーブルに挿入した行を検索してみます。そのためには select 文を使います。
 ``` sql
 select *          ← 「*」はすべての列を表示 
-from User;  ← テーブルの行をすべて表示
+from testtable;  ← テーブルの行をすべて表示
 ```
 ###  行は横、列は縦です。
 
@@ -45,7 +45,7 @@ from User;  ← テーブルの行をすべて表示
 - ある特定の列だけを検索する。
 ``` sql
 select name 
-from User;
+from testtable;
 ```
 
 - ある特定の行だけを検索する。
