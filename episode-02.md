@@ -48,9 +48,45 @@ order by gender desc, height
   - 男子の平均身長: (158+163+170+175) / 4 = 166.5
   - 女子の平均身長: (168+170) / 2 = 169.0
   
-  
+# グループ化
+- グループ化 (Grouping) とは、何らかのキーを使って行をいくつかのグループ にまとめることです。
+- 「行」をグループにするのがポイント
+- 前回のクエリを見てみましょう
+
+``` sql
+select 
+    gender
+,   avg(height) --  グループごとに平均値を計算 
+from 
+    members
+group by gender -- 性別ごとにグループ化
+;
+```
+- 「avg()」のように、グループから複数の値を受け取って何らかの値を計算する関数を集約関数 (Aggregate function) と言います
 
 
+# 集約関数
+- sum() ... 合計する
+- avg() ... 平均する
+- max() ... 最大値を調べる
+- min() ... 最小値を調べる
+- count() ... 行数を数える
 
+## 男女別に、身長の最大値と最小値と合計値と行数と平均値を計算する
+
+``` sql
+select 
+    gender
+,   max(height)
+,   min(height)
+,   sum(height)
+,   count(*)
+,   to_char(avg(height), '999.99')
+from 
+    members
+group by gender --性別でグループ化 
+order by gender desc
+;
+```
 
 
