@@ -94,3 +94,7 @@ order by gender desc
 - 「count(*)」は「行の数を数える」という意味になります。
 - count(height)にかくと値が入っていないものに関してはカウントしません
 
+
+
+
+
