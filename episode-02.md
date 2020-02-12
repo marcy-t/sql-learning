@@ -81,7 +81,7 @@ select
 ,   min(height)
 ,   sum(height)
 ,   count(*)
-,   to_char(avg(height), '999.99')
+,   to_char(avg(height), '999.99') -- 小数点100の位まで出す
 from 
     members
 group by gender --性別でグループ化 
@@ -89,4 +89,8 @@ order by gender desc
 ;
 ```
 
+## count(*)だけなんで*?
+- この「*」は「行そのもの」を表しています。なので
+- 「count(*)」は「行の数を数える」という意味になります。
+- count(height)にかくと値が入っていないものに関してはカウントしません
 
