@@ -143,7 +143,7 @@ select
 from
     movies
 ,   characters
-where movies.movie_id = characters.movie_id;
+where movies.movie_id = characters.movie_id
 ;
 ```
 
