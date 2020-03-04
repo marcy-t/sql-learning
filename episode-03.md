@@ -96,7 +96,7 @@ select
 from
     movies
 ;
-
+```
 | movie_id | title |
 | --- | --- |
 | 93 | 風の谷のナウシカ |
@@ -104,12 +104,13 @@ from
 | 95 | となりのトトロ |
 | 96 | 崖の上のポニョ |
 
-
+``` sql
 select
     *
 from
     characters
 ;
+```
 | id | movie_id | name | gender |
 | --- | --- | --- | --- |
 | 401 | 93 | ナウシカ | F |
@@ -119,11 +120,29 @@ from
 | 405 | 95 | さつき | M |
 | 406 | 95 | メイ | F |
 | 407 |  | クラリス | F |
-```
 
 
 - from 句に複数のテーブル名を指定できます。するとすべての行の 組み合わせが得られます。
 
+``` sql
+select
+    movies.*
+,   characters.*    
+from
+    movies
+,   characters
+;
+```
+- 4 × 7 = 28行出たかと思います
+- このすべての組み合わせから、movie_id(映画 ID)が一致する組み合わせだけを選ぶと、映画とキャラクターの正しい組み合わせが得られます。
 
-
-
+``` sql
+select
+    movies.*
+,   characters.*    
+from
+    movies
+,   characters
+where movies.movie_id = characters.movie_id;
+;
+```
