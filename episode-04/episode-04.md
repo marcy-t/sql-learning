@@ -49,7 +49,7 @@ values
 ,   (407, null, 'クラリス', 'F')
 ;
 
--- コメント 前回やった人はこれだけやればいいです
+-- 前回やった人はこれだけやればいいです
 create table comment (
     id integer
 ,   movie_id integer
@@ -57,7 +57,7 @@ create table comment (
 )
 ;
 
-前回やった人はこれだけやればいいです
+-- 前回やった人はこれだけやればいいです
 insert into comment (id, movie_id, comment)
 values 
     (401, 93, '多すぎる火は何も生みはせん')
