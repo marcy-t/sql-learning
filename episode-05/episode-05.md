@@ -43,7 +43,7 @@ values
 ,   (404, 94, 'ムスカ', 'M')
 ,   (405, 95, 'さつき', 'M')
 ,   (406, 95, 'メイ', 'F')
-,   (407, null, 'クラリス', 'F')
+,   (407, null, 'クラリス', '')
 ;
 
 create table comment (
@@ -83,6 +83,7 @@ select
     case 
       when gender = 'M' then '男性'
       when gender = 'F' then '女性'
+      else '--'
     end as gender  
 from
     characters
@@ -94,7 +95,7 @@ from
 男性
 男性
 女性
-女性
+--
 ```
 
 ``` sql
@@ -103,17 +104,16 @@ select
 ,   case 
       when gender = 'M' then '男性'
       when gender = 'F' then '女性'
+      else '--'
     end as gender  
 from
     characters
-;
-
-ナウシカ	女性
+;ナウシカ	女性
 パズー	男性
 シータ	女性
 ムスカ	男性
 さつき	男性
 メイ	女性
-クラリス	女性
+クラリス	--
 ```
 
