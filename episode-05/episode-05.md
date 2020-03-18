@@ -137,3 +137,22 @@ from
 クラリス	--
 ```
 
+# カテゴリ分けも任意でできるようになります
+``` sql
+select
+    case 
+      when characters.name = 'ナウシカ' then '風の谷のナウシカ'
+      when characters.name = 'ムスカ' then 'ラピュタ'
+      when characters.name = 'メイ' then 'トトロ'
+      else '--'
+    end   
+,   comment.comment
+from
+    movies
+,   characters
+,   comment
+where movies.movie_id = characters.movie_id
+and characters.id = comment.id
+;
+```
+
