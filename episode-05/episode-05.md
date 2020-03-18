@@ -97,5 +97,23 @@ from
 女性
 ```
 
+``` sql
+select
+    name
+,   case 
+      when gender = 'M' then '男性'
+      when gender = 'F' then '女性'
+    end as gender  
+from
+    characters
+;
 
+ナウシカ	女性
+パズー	男性
+シータ	女性
+ムスカ	男性
+さつき	男性
+メイ	女性
+クラリス	女性
+```
 
