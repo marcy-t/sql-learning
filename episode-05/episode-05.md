@@ -157,27 +157,26 @@ and characters.id = comment.id
 ```
 
 
-# 問題
+# 問題1
 - 下記のデータセットを作りなさい
 
-``` sql
-select
-    movies.title
-,   characters.name    
-,   case 
-      when characters.name = 'パズー' then comment.comment
-      when characters.name = 'シータ' then comment.comment
-      when characters.name = 'ムスカ' then comment.comment
-      when characters.name = 'さつき' then '七石山病院'
-      when characters.name = 'メイ' then 'トトロいたもん'
-      else '--'
-    end as カテゴリコメント
-from
-    movies
-,   characters
-,   comment
-where movies.movie_id = characters.movie_id
-and characters.id = comment.id
-;
+``` text
+| title | name  | カテゴリコメント |
+| --- | --- | --- |
+| 風の谷のナウシカ | ナウシカ | -- |
+| 天空の城ラピュタ | パズー | 僕は海賊にはならないよ |
+| 天空の城ラピュタ | シータ | リュシータ・トエル・ウル・ラピュタ |
+| 天空の城ラピュタ | ムスカ | ロムスカ・パロ・ウル・ラピュタ |
+| となりのトトロ | さつき | 七石山病院 |
+| となりのトトロ | メイ | トトロいたもん |
+```
+
+# 問題2
+- 上記のデータセットからLIKEを使いコメントを指定してデータの絞り込みをしてください
+
+``` text
+| title | name  | カテゴリコメント |
+| --- | --- | --- |
+| 天空の城ラピュタ | シータ | リュシータ・トエル・ウル・ラピュタ |
 ```
 
