@@ -29,8 +29,8 @@ values
 ,   (2, '諸星康治', '1981-05-10','M')
 ,   (3, '伴香音', '1991-12-17','F')
 ,   (4, '大内里奈', '1993-05-03','F')
+,   (5, '南部鉄夫', '1984-04-06','M')
 ;
-
 
 CREATE TABLE IF NOT EXISTS used_history (
   id integer references customer(id),
@@ -38,7 +38,6 @@ CREATE TABLE IF NOT EXISTS used_history (
   amount integer,
   created_at timestamptz
 );
-
 
 insert into used_history (id, payment_id, amount, created_at)
 values 
