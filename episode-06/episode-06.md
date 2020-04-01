@@ -1,4 +1,4 @@
-# episode-06
+# episode-06〜時間操作
 
 ## おさらい
 ``` sql
@@ -62,4 +62,99 @@ values
 ,   (5, '1qase4juc9idkj', 120,'2020-02-09 16:32:00')
 ,   (5, 'oked82wjnedfi9', 230,'2020-02-12 14:31:00')
 ;
+
+
+select * from customer;
+
+select * from used_history;
+
 ```
+
+
+# データを結合して見ましょう
+
+``` sql
+select 
+    * 
+from 
+    customer
+,   used_history
+;
+```
+
+- 共通するデータを結合して見ましょう
+
+``` sql
+select 
+   * 
+from 
+    customer
+,   used_history
+where 
+customer.id = used_history.id
+;
+```
+
+# 日付から年齢を出す
+
+- 年齢の求め方「現在日 - 生誕日」
+- 現在は `select current_date;`
+
+``` sql
+select current_date;
+
+select 
+    customer.name as 名前
+,   customer.age  as 生年月日
+,   age(current_date, customer.age::timestamp) as 年齢
+,   EXTRACT(YEAR FROM age(current_date, customer.age::timestamp)) as 歳
+from 
+    customer
+,   used_history
+where 
+customer.id = used_history.id
+;
+
+```
+- これでデータが結合されたデータと年齢が出るかと思います。
+- customer.age::timestampと指定している内容はこのcustomer.ageは日付ですと指定する宣言文のようなものになります。
+
+# 問題
+- 1.年齢が30歳以下のデータを出力してください
+
+- 出力結果
+``` sql
+大内里奈	1993-05-03	26 years 10 mons 29 days	26
+伴香音	   1991-12-17	 28 years 3 mons 15 days	28
+```
+
+- 2.2020-03-01より前の使用ユーザを出力してください。
+- 出力結果
+``` sql
+1	下川光政	6787	2020-03-01 07:34:22
+1	下川光政	876	  2020-03-04 16:44:23
+1	下川光政	3459	2020-03-06 12:00:00
+3	伴香音	  540	   2020-03-02 12:02:40
+3	伴香音	  780	   2020-03-05 20:12:30
+```
+
+
+- 3.'2020-02-01' から '2020-02-10'の間のユーザを出力してください
+日付の間を出すにはbetweenを使います。
+
+``` sql
+where 
+used_history.created_at between '2020-02-01' and '2020-02-10'
+```
+
+- 出力結果
+``` sql
+2	諸星康治	9873	2020-02-05 08:43:40
+2	諸星康治	456	  2020-02-01 09:10:00
+4	大内里奈	320	  2020-02-01 20:12:30
+5	南部鉄夫	120	  2020-02-09 16:32:00
+5	南部鉄夫	761	  2020-02-07 12:55:00
+5	南部鉄夫	9876	2020-02-04 09:55:00
+```
+
+
